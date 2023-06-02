@@ -13,5 +13,5 @@ public class DataTeamWrapperResponse {
 	private List<TeamResponse> dataTeam;
 	
 	@JsonProperty("meta")
-	private MetaResponse meta;	
+	private MetaResponse metaTeam;	
 }

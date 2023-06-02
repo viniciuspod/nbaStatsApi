@@ -7,11 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class DataPlayerWrapperResponse {
-
+public class DataGameWrapperResponse {
+	
 	@JsonProperty("data")
-	private List<PlayerResponse> dataPlayer;
+	private List<GameResponse> dataGames;
 	
 	@JsonProperty("meta")
-	private MetaResponse metaPlayer;
+	private MetaResponse metaGame;
+
 }

@@ -16,6 +16,9 @@ public class TeamResponse {
 	@JsonProperty("city")
 	private String city;
 	
+	@JsonProperty("conference")
+	private String conference;
+	
 	@JsonProperty("division")
 	private String division;
 	
