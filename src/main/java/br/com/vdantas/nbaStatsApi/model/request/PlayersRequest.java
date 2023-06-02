@@ -9,4 +9,7 @@ public class PlayersRequest {
 
 	@JsonProperty("player")
 	private String player;
+	
+	@JsonProperty("page")
+	private Integer page;
 }

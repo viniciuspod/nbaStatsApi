@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class DataWrapperResponse {
+public class DataPlayerWrapperResponse {
 
 	@JsonProperty("data")
 	private List<PlayerResponse> data;

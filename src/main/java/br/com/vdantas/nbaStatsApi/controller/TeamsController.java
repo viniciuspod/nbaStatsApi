@@ -11,27 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.vdantas.nbaStatsApi.model.request.PlayersRequest;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
-import br.com.vdantas.nbaStatsApi.model.response.PlayerResponse;
+import br.com.vdantas.nbaStatsApi.model.response.DataTeamWrapperResponse;
+import br.com.vdantas.nbaStatsApi.model.response.TeamResponse;
 import br.com.vdantas.nbaStatsApi.service.StatsService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(path = "/api/v1/players")
+@RequestMapping(path = "/api/v1/teams")
 @Slf4j
-public class PlayersController {
+public class TeamsController {
 	
 	@Autowired
 	private StatsService statsService;
-
-	@GetMapping(value = "/search", produces = "application/json", consumes = "application/json;")
-	@ResponseBody
-	public DataPlayerWrapperResponse getPlayersSearch(@RequestBody PlayersRequest player) {	
-		return statsService.getPlayersSearch(player);
-	}
 	
-	@GetMapping(value = "/search/{playerId}", produces = "application/json")
+	@GetMapping(value = "/search", produces = "application/json")
 	@ResponseBody
-	public PlayerResponse getPlayerSearchSpecific(@PathVariable("playerId") String playerId) {	
-		return statsService.getPlayerSearchSpecific(playerId);
+	public DataTeamWrapperResponse getTeamsSearch(@RequestParam("page") Integer page) {	
+		return statsService.getTeamsPage(page);
 	}	
+	
+	@GetMapping(value = "/search/{teamId}", produces = "application/json")
+	@ResponseBody
+	public TeamResponse getTeamSearchSpecific(@PathVariable("teamId") String teamId) {	
+		return statsService.getTeamsSpecific(teamId);
+	}		
 }
