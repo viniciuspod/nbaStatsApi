@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.vdantas.nbaStatsApi.model.request.GameRequest;
 import br.com.vdantas.nbaStatsApi.model.response.DataGameWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
+import br.com.vdantas.nbaStatsApi.model.response.DataStatsWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.PlayerResponse;
 import br.com.vdantas.nbaStatsApi.model.response.TeamResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataTeamWrapperResponse;
@@ -44,5 +45,14 @@ public interface BallDontLie {
 																	@RequestParam("postseason") Boolean postSeason);
 	
 	@GetMapping(value = "/games/{gameId}", produces = "application/json; charset=utf-8")
-	public ResponseEntity<GameResponse> getGameSearchSpecific(@PathVariable("gameId") String gameId);	
+	public ResponseEntity<GameResponse> getGameSearchSpecific(@PathVariable("gameId") String gameId);
+
+	@GetMapping(value = "/stats", produces = "application/json; charset=utf-8")
+	public DataStatsWrapperResponse getStatsSearch(@RequestParam("page") Integer page,
+													@RequestParam("seasons[]") List<Integer> seasons,
+													@RequestParam("game_ids[]") List<Integer> gamesIds,
+													@RequestParam("player_ids[]") List<Integer> playerIds,
+													@RequestParam("start_date") String startDate,
+													@RequestParam("end_date") String endDate,
+													@RequestParam("postseason") Boolean postSeason);	
 }

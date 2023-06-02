@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 
 import br.com.vdantas.nbaStatsApi.model.request.GameRequest;
 import br.com.vdantas.nbaStatsApi.model.request.PlayersRequest;
+import br.com.vdantas.nbaStatsApi.model.request.StatsRequest;
 import br.com.vdantas.nbaStatsApi.model.response.DataGameWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
+import br.com.vdantas.nbaStatsApi.model.response.DataStatsWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataTeamWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.GameResponse;
 import br.com.vdantas.nbaStatsApi.model.response.PlayerResponse;
@@ -37,15 +39,25 @@ public class StatsService {
 
 	public DataGameWrapperResponse getGamesSearch(GameRequest game) {
 		return ballDontLie.getGamesSearch(game.getPage(),
-										game.getSeasons(),
-										game.getTeamsIds(),
-										game.getStartDate(),
-										game.getEndDate(),
-										game.getPostSeason()).getBody();
+											game.getSeasons(),
+											game.getTeamsIds(),
+											game.getStartDate(),
+											game.getEndDate(),
+											game.getPostSeason()).getBody();
 	}
 
 	public GameResponse getGameSearchSpecific(String gameId) {
 		return  ballDontLie.getGameSearchSpecific(gameId).getBody();
+	}
+
+	public DataStatsWrapperResponse getStatsSearch(StatsRequest stats) {
+		return  ballDontLie.getStatsSearch(stats.getPage(),
+											stats.getSeasons(),
+											stats.getGamesIds(),
+											stats.getPlayersIds(),
+											stats.getStartDate(),
+											stats.getEndDate(),
+											stats.getPostSeason());
 	}
 
 }
