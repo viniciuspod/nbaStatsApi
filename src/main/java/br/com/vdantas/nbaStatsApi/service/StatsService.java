@@ -3,9 +3,11 @@ package br.com.vdantas.nbaStatsApi.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.vdantas.nbaStatsApi.model.request.AverageRequest;
 import br.com.vdantas.nbaStatsApi.model.request.GameRequest;
 import br.com.vdantas.nbaStatsApi.model.request.PlayersRequest;
 import br.com.vdantas.nbaStatsApi.model.request.StatsRequest;
+import br.com.vdantas.nbaStatsApi.model.response.DataAverageWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataGameWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataStatsWrapperResponse;
@@ -58,6 +60,11 @@ public class StatsService {
 											stats.getStartDate(),
 											stats.getEndDate(),
 											stats.getPostSeason());
+	}
+
+	public DataAverageWrapperResponse getAveragesSearch(AverageRequest average) {
+		return ballDontLie.getAveragesSerach(average.getSeason(),
+											  average.getPlayerIds());
 	}
 
 }

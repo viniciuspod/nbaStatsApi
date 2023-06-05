@@ -7,24 +7,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.vdantas.nbaStatsApi.model.request.PlayersRequest;
+import br.com.vdantas.nbaStatsApi.model.request.AverageRequest;
 import br.com.vdantas.nbaStatsApi.model.request.StatsRequest;
-import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
+import br.com.vdantas.nbaStatsApi.model.response.DataAverageWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataStatsWrapperResponse;
 import br.com.vdantas.nbaStatsApi.service.StatsService;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(path = "/api/v1/stats")
+@RequestMapping(path = "/api/v1/averages")
 @Slf4j
-public class StatsController {
+public class AveragesController {
 	
 	@Autowired
 	private StatsService statsService;
 
 	@GetMapping(value = "/search", produces = "application/json", consumes = "application/json;")
 	@ResponseBody
-	public DataStatsWrapperResponse getPlayersSearch(@RequestBody StatsRequest stats) {	
-		return statsService.getStatsSearch(stats);
+	public DataAverageWrapperResponse getPlayersSearch(@RequestBody AverageRequest average) {	
+		return statsService.getAveragesSearch(average);
 	}
 }

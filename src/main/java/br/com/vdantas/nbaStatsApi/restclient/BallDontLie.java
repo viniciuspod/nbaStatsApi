@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.vdantas.nbaStatsApi.model.request.GameRequest;
+import br.com.vdantas.nbaStatsApi.model.response.DataAverageWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataGameWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
 import br.com.vdantas.nbaStatsApi.model.response.DataStatsWrapperResponse;
@@ -54,5 +55,9 @@ public interface BallDontLie {
 													@RequestParam("player_ids[]") List<Integer> playerIds,
 													@RequestParam("start_date") String startDate,
 													@RequestParam("end_date") String endDate,
-													@RequestParam("postseason") Boolean postSeason);	
+													@RequestParam("postseason") Boolean postSeason);
+
+	@GetMapping(value = "/season_averages", produces = "application/json; charset=utf-8")
+	public DataAverageWrapperResponse getAveragesSerach(@RequestParam("season") String season,
+														 @RequestParam("player_ids[]") List<Integer> playerIds);	
 }
