@@ -24,7 +24,7 @@ public class StatsService {
 	private BallDontLie ballDontLie;
 
 	public DataPlayerWrapperResponse getPlayersSearch(PlayersRequest player) {
-		return ballDontLie.getPlayersSearch(player.getPlayer(),player.getPage()).getBody();
+		return ballDontLie.getPlayersSearch(player.getPlayer(),player.getPage(),player.getPerPage()).getBody();
 	}
 
 	public PlayerResponse getPlayerSearchSpecific(String playerId) {

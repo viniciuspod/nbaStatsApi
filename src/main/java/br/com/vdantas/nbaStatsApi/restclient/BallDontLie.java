@@ -26,7 +26,8 @@ public interface BallDontLie {
 
 	@GetMapping(value = "/players", produces = "application/json; charset=utf-8")
 	public ResponseEntity<DataPlayerWrapperResponse> getPlayersSearch(@RequestParam("search") String search,
-																	  @RequestParam("page") Integer page);
+																	  @RequestParam("page") Integer page,
+																	  @RequestParam("per_page") Integer perPage);
 
 	@GetMapping(value = "/players/{playerId}", produces = "application/json; charset=utf-8")
 	public  ResponseEntity<PlayerResponse> getPlayerSearchSpecific(@PathVariable("playerId") String playerId);

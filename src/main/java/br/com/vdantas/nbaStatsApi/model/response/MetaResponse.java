@@ -8,7 +8,7 @@ import lombok.Data;
 public class MetaResponse {
 
 	@JsonProperty("total_pages")
-	private Integer totalPager;
+	private Integer totalPages;
 	
 	@JsonProperty("current_page")
 	private Integer currentPage;

@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.vdantas.nbaStatsApi.model.request.PlayersRequest;
 import br.com.vdantas.nbaStatsApi.model.response.DataPlayerWrapperResponse;
+import br.com.vdantas.nbaStatsApi.model.response.PlayerGetResponse;
+import br.com.vdantas.nbaStatsApi.model.response.PlayerPostResponse;
 import br.com.vdantas.nbaStatsApi.model.response.PlayerResponse;
+import br.com.vdantas.nbaStatsApi.service.PlayerService;
 import br.com.vdantas.nbaStatsApi.service.StatsService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +27,9 @@ public class PlayersController {
 	
 	@Autowired
 	private StatsService statsService;
+	
+	@Autowired
+	private PlayerService playerService;
 
 	@PostMapping(value = "/search", produces = "application/json", consumes = "application/json;")
 	@ResponseBody
@@ -37,5 +43,19 @@ public class PlayersController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public PlayerResponse getPlayerSearchSpecific(@PathVariable("playerId") String playerId) {	
 		return statsService.getPlayerSearchSpecific(playerId);
+	}	
+	
+	@PostMapping(value = "/saveAllPlayers", produces = "application/json")
+	@ResponseBody
+	@CrossOrigin(origins = "http://localhost:3000")
+	public PlayerPostResponse PostPlayers () {	
+		return playerService.postPlayers();
+	}	
+	
+	@GetMapping(value = "/getAllPlayers", produces = "application/json")
+	@ResponseBody
+	@CrossOrigin(origins = "http://localhost:3000")
+	public PlayerGetResponse GetPlayers () throws Exception {
+		return playerService.getPlayers();
 	}	
 }

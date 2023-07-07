@@ -32,7 +32,7 @@ public class TeamsController {
 	@Autowired
 	private TeamService teamService;
 	
-	@PostMapping(value = "/search", produces = "application/json")
+	@GetMapping(value = "/search", produces = "application/json")
 	@ResponseBody
 	@CrossOrigin(origins = "http://localhost:3000")
 	public DataTeamWrapperResponse getTeamsSearch(@RequestParam("page") Integer page) {	

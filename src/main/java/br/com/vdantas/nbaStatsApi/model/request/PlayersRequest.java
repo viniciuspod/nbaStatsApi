@@ -12,4 +12,7 @@ public class PlayersRequest {
 	
 	@JsonProperty("page")
 	private Integer page;
+	
+	@JsonProperty("perpage")
+	private Integer perPage;
 }
