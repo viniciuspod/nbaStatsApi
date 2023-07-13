@@ -56,7 +56,8 @@ public interface BallDontLie {
 													@RequestParam("player_ids[]") List<Integer> playerIds,
 													@RequestParam("start_date") String startDate,
 													@RequestParam("end_date") String endDate,
-													@RequestParam("postseason") Boolean postSeason);
+													@RequestParam("postseason") Boolean postSeason,
+													@RequestParam("per_page") Integer perPage);
 
 	@GetMapping(value = "/season_averages", produces = "application/json; charset=utf-8")
 	public DataAverageWrapperResponse getAveragesSerach(@RequestParam("season") String season,

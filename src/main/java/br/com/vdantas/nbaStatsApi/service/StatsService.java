@@ -59,7 +59,8 @@ public class StatsService {
 											stats.getPlayersIds(),
 											stats.getStartDate(),
 											stats.getEndDate(),
-											stats.getPostSeason());
+											stats.getPostSeason(),
+											stats.getPerPage());
 	}
 
 	public DataAverageWrapperResponse getAveragesSearch(AverageRequest average) {

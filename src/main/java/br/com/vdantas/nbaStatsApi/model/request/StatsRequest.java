@@ -29,4 +29,7 @@ public class StatsRequest {
 	
 	@JsonProperty("endDate")
 	private String endDate;
+	
+	@JsonProperty("perPage")
+	private Integer perPage;
 }
